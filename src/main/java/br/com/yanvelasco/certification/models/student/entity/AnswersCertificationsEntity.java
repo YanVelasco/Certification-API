@@ -12,7 +12,7 @@ import java.util.UUID;
 public class AnswersCertificationsEntity {
     private UUID id;
     private UUID certificationId;
-   private UUID studentId;
-   private UUID answerId;
-   private Boolean isCorrect;
+    private UUID studentId;
+    private UUID answerId;
+    private Boolean isCorrect;
 }
