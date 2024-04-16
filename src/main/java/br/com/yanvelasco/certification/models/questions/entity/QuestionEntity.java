@@ -2,6 +2,7 @@ package br.com.yanvelasco.certification.models.questions.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "questions")
+@Builder
 public class QuestionEntity {
 
     @Id
