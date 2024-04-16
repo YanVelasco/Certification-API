@@ -20,6 +20,6 @@ public class StudentController {
 
     @PostMapping("/verifyHasCertification")
     public Boolean verifyHasCertification(@RequestBody VerifyHasCertificationDTO verifyHasCertificationDTO) {
-        return verifyHasCertificationUseCase.execute(verifyHasCertificationDTO);
+        return verifyHasCertificationUseCase.execute (verifyHasCertificationDTO);
     }
 }
