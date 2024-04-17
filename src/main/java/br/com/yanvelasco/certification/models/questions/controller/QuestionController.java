@@ -37,16 +37,18 @@ public class QuestionController {
     // Assuming future use within the class, hence made private and non-static
     private QuestionResponseDTO questionResponseDTO(QuestionEntity questionDTO, AlternativesEntity alternativesDTO) {
 
-        var alternativesResponseDTO = AlternativesResponseDTO.builder()
-                .id(alternativesDTO.getId())
-                .description(alternativesDTO.getDescription())
-                .build();
+        List<AlternativesResponseDTO> alternativesResponseDTOs = questionDTO.getAlternatives().stream()
+                .map(alternativesEntity -> AlternativesResponseDTO.builder()
+                        .id(alternativesEntity.getId())
+                        .description(alternativesEntity.getDescription())
+                        .build())
+                .collect(Collectors.toList());
 
         return QuestionResponseDTO.builder()
                 .id(questionDTO.getId())
                 .description(questionDTO.getDescription())
                 .technology(questionDTO.getTechnology())
-                .alternatives(List.of(alternativesResponseDTO))
+                .alternatives(alternativesResponseDTOs) // Aqui você passa a lista completa de alternativas
                 .build();
     }
 }
