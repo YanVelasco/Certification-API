@@ -1,5 +1,6 @@
 package br.com.yanvelasco.certification.models.student.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class StudentEntity {
     private String email;
 
     @OneToMany(mappedBy = "studentEntity")
+    @JsonManagedReference
     private List <CertificationStudentEntity> certificationStudentEntity;
 
     @CreationTimestamp

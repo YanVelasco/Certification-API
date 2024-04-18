@@ -1,5 +1,6 @@
 package br.com.yanvelasco.certification.models.student.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class CertificationStudentEntity {
 
     @ManyToOne
     @JoinColumn(name = "student_id", insertable = false, updatable = false)
+    @JsonBackReference
     private StudentEntity studentEntity;
 
     private String technology;
